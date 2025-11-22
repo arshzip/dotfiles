@@ -47,3 +47,9 @@ alias sc="source ~/.zshrc"
 
 # https://x.com/luciascarlet/status/1799036457660956896
 alias baptize="xattr -d com.apple.quarantine"
+
+# Obsidian stuff
+alias obr2="rclone copy -P --include='*.md' --include='*.canvas' ~/Documents/Obsidian_notes r2:obnotes"
+
+# nvim cur directory
+alias nv="nvim ."
