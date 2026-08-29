@@ -53,3 +53,6 @@ alias obr2="rclone copy -P --include='*.md' --include='*.canvas' ~/Documents/Obs
 
 # nvim cur directory
 alias nv="nvim ."
+
+# claude dangerously skip permissions
+alias csp="claude --dangerously-skip-permissions"
