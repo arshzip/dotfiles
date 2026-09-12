@@ -5,6 +5,7 @@ brew 'ffmpeg'
 brew 'jq'
 brew 'micro' # Intuitive CLI editor with mouse-friendly navigation
 brew 'poppler' # PDF tools
+brew 'qpdf' # PDF password removal
 brew 'fzf' 
 brew 'btop'
 brew 'the_silver_searcher'

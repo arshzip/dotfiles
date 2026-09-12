@@ -51,3 +51,32 @@ lmfao() {
 mp3() {
 	yt-dlp -f 'ba' -x --audio-format mp3 "$1"  -o '%(title)s.%(ext)s'
 }
+
+# ls last n by modification date
+lt() {
+	if [[ "$1" == "" ]]
+	then
+		ls -t | head -10
+	else
+		ls -t | head -"$1"
+	fi 
+}
+
+# Remove the password from a pdf: pdfunlock <file.pdf> <password> -> file_unlocked.pdf
+pdfunlock() {
+	if [[ "$1" == "" || "$2" == "" ]]
+	then
+		echo "usage: pdfunlock <file.pdf> <password>"
+		return 1
+	fi
+	qpdf --password="$2" --decrypt "$1" "${1:r}_unlocked.pdf"
+	local rc=$?
+	# qpdf exits 3 on success with warnings (common on malformed bank pdfs)
+	if [[ $rc -eq 0 || $rc -eq 3 ]]
+	then
+		echo "unlocked: ${1:r}_unlocked.pdf"
+	else
+		echo "pdfunlock failed (qpdf exit $rc — wrong password?)" >&2
+		return $rc
+	fi
+}
